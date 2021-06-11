@@ -18,8 +18,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
+Ruby: 3.0.0
+Rails: 6.1.3.2
 Postgres: >=9.5
 
 ### Setup
@@ -71,7 +71,18 @@ TBA
 
 ## Authors
 
-TBA
+👤 **Sebastian Rizzuto**
+
+- GitHub: [@srizzuto](https://github.com/srizzuto)
+- Twitter: [@sbstnrzzt](https://twitter.com/sbstnrzzt)
+- LinkedIn: [Sebastian Rizzuto](https://www.linkedin.com/in/srizzuto/)
+
+
+👤 **Barack Mukelenga** 
+
+- GitHub: [@barackm](https://github.com/barackm)
+- Twitter: [@BarackMukelenga](https://twitter.com/BarackMukelenga)
+- LinkedIn: [Barack Mukelenga](https://www.linkedin.com/in/baraka-mukelenga/ )
 
 ## 🤝 Contributing
 
@@ -85,7 +96,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+- To my coding partner who helped me through all the work
+- To our Stand Up Team who kept the morale up!
 
 ## 📝 License
 
