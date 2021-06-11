@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# rubocop:disable Lint/UselessAssignment
+
 RSpec.describe Friendship, type: :model do
   describe 'associations' do
     it { should belong_to(:user).class_name('User') }
@@ -37,3 +39,5 @@ RSpec.describe Friendship, type: :model do
     it { should validate_presence_of(:status) }
   end
 end
+
+# rubocop:enable Lint/UselessAssignment
