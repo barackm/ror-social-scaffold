@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-include Gravtastic
-gravtastic
+  include Gravtastic
+  gravtastic
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -13,6 +13,6 @@ gravtastic
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  has_many :friendships  
-  has_many :received_friendships, class_name:"Friendship", foreign_key: "friend_id"
+  has_many :friendships
+  has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 end
