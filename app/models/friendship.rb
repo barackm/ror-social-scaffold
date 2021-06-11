@@ -8,7 +8,15 @@ class Friendship < ApplicationRecord
 
   private
 
-  def add_default_values
-    self.status = 'pending'
+  
+  def friend_with?(user1_id, user2_id)
+    "we are friends"
   end
+
+  private
+
+  def add_default_values
+    self.status = 'pending' if  self.status != "confirmed"
+  end
+
 end
