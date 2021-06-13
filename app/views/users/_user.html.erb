@@ -1,6 +1,18 @@
-<li>
-  Name: <%= user.name %>
-  <span class="profile-link">
-    <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-  </span>
-</li>
+<div class="user-item-wrapper">
+    <div class="user-image">
+        <div class="image">
+            <%= image_tag(user.gravatar_url)%>
+        </div>
+    </div>
+    <div class="user-details">
+        <div class="user-names">
+            <span>
+                Joined <%= user.created_at.strftime("%Y/%m/%d") %>
+            </span>
+        </div>
+        <div class="user-btn-control">
+            <%= link_to 'See Profile',  user_path(user), class: '' %>
+            <%= link_to 'Add Friend',  user_path(user), class: 'add-friend' %>
+        </div>
+    </div>
+</div>

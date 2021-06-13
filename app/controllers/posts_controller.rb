@@ -4,11 +4,12 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     timeline_posts
+    @users = User.all
   end
 
   def create
     @post = current_user.posts.new(post_params)
-
+    @users = User.all
     if @post.save
       redirect_to posts_path, notice: 'Post was successfully created.'
     else

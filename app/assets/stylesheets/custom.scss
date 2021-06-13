@@ -5,6 +5,13 @@ $primary-color: #8bc34a;
 $primary-color-light: #dcedc8;
 $primary-color-text: #212121;
 $divider-color: #bdbdbd;
+$main-bg-color: #f0f2f5;
+$white: #fff;
+$box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+$blue: #1876f2;
+$border: 1px solid darken($main-bg-color, 10%);
+$danger-color: rgb(224, 36, 94);
+$green-color: #3ac47d;
 
 * {
   margin: 0;
@@ -14,10 +21,10 @@ $divider-color: #bdbdbd;
 }
 
 body {
-  background: #fff;
   position: relative;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  background-color: $main-bg-color;
 }
 
 h1,
@@ -35,6 +42,11 @@ a {
   color: $primary-color-text;
 }
 
+.container.main {
+}
+.navbar-main {
+  box-shadow: 0 0 1rem rgba($color: #000000, $alpha: 0.1);
+}
 .nav {
   display: flex;
   justify-content: space-between;
@@ -71,7 +83,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px;
 }
 
 .notice,
@@ -96,6 +107,141 @@ a {
 .errors {
   font-size: 10px;
   color: red;
+}
+
+.timeline-main-area {
+  padding-top: 4rem;
+  width: 60%;
+  background-color: $main-bg-color;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+  bottom: 0;
+  .app-left-side {
+    width: 25%;
+    top: 4rem;
+    position: fixed;
+    left: 0;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    height: 100%;
+    padding-bottom: 3rem;
+
+    .authors-names {
+      padding: 0.3rem;
+      border-bottom: $border;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      flex: 1;
+      .user-profile {
+        &.last {
+          margin-bottom: 3rem;
+        }
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        padding: 0.3rem;
+        border-radius: 0.3rem;
+        &:hover {
+          background-color: darken($main-bg-color, 10%);
+        }
+        .user-image {
+          width: 2.5rem;
+          .image {
+            &.microverse {
+              border-radius: 0;
+            }
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .app-right-side {
+    width: 25%;
+    top: 4rem;
+    position: fixed;
+    right: 0;
+    padding: 2rem 1rem;
+    padding-bottom: 3rem;
+    height: 100%;
+    overflow-y: auto;
+    .people-you-may-know {
+      margin-bottom: 2rem;
+      .header {
+        padding: 0.3rem;
+        border-bottom: $border;
+        margin-bottom: 0.5rem;
+      }
+      .users-wrapper {
+        .time-line-user-wrapper {
+          display: flex;
+          margin-bottom: 0.5rem;
+          .user-image {
+            width: 3.5rem;
+            .image {
+              width: 3rem;
+              height: 3rem;
+              border-radius: 50%;
+              overflow: hidden;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+          .user-btns {
+            margin-top: 0.5rem;
+            display: flex;
+            .remove {
+              border-color: $danger-color;
+              color: $danger-color;
+              &:hover {
+                background-color: lighten($danger-color, 40%);
+              }
+            }
+            a {
+              font-size: 0.8rem;
+              background-color: transparent;
+              border: 1px solid $blue;
+              padding: 0.2rem 0.5rem;
+              border-radius: 0.3rem;
+              color: $blue;
+              font-weight: bold;
+              &:hover {
+                background-color: lighten($blue, 40%);
+              }
+              &:first-child {
+                margin-right: 0.3rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .application-middle-area {
+    padding: 2rem 8rem;
+    flex: 1;
+    height: 100%;
+
+    .new_post {
+      width: 100%;
+    }
+  }
 }
 
 .new_post,
@@ -274,6 +420,21 @@ form {
     }
   }
 }
+.all-posts-wrapper {
+  width: 100%;
+}
+// navbar style
+.logo-header {
+  img {
+    transform: translate(0, 0.3rem);
+  }
+}
+.button.is-primary {
+  background-color: $blue !important;
+  padding: 0.2rem 0.6rem !important;
+}
+.buttons {
+}
 
 .users-section {
   width: 100%;
@@ -345,5 +506,680 @@ form {
   .users-section,
   .user-section {
     width: 50%;
+  }
+}
+// post styles
+
+.post-main-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  border-bottom: 1px solid lighten(#000, 70%);
+  margin-bottom: 1rem;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  .post-header {
+    padding: 0.9rem;
+    display: flex;
+    align-items: center;
+    .post-author-image-wrapper {
+      width: 2.5rem;
+      margin-right: 0.5rem;
+      .image {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .author-names {
+      h3 {
+        margin: 0;
+        margin-bottom: -0.4rem;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      span {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: lighten($color: #000000, $amount: 50%);
+        margin: 0;
+      }
+    }
+  }
+  .post-image {
+    display: none;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+  .liked-icon {
+    color: $danger-color;
+  }
+  .content {
+    padding: 0 0.9rem;
+  }
+  .post-details {
+    border-left: 0.2rem solid $blue;
+    border-top: $border;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .post-likes-container {
+      display: flex;
+    }
+    .like-count-icon {
+      width: 1.3rem;
+      height: 1.3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0.4rem;
+      i {
+        color: $white;
+      }
+    }
+    .post-comment-count {
+      display: flex;
+      color: lighten(#000, 40%);
+      font-size: 1rem;
+      span {
+        margin-right: 0.4rem;
+        font-size: 1rem;
+        font-weight: normal;
+      }
+    }
+    span {
+      font-weight: normal;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.new_post {
+  width: 100%;
+}
+.post-input-main-container {
+  background-color: $white;
+  border-radius: 0.5rem;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+  .image-input-wrapper {
+    display: flex;
+    padding: 0.9rem 0.9rem;
+    width: 100%;
+    flex: 1;
+    .image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 0.5rem;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .text-field-container {
+      flex: 1;
+      display: flex;
+      width: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      padding: 0 1rem;
+      background-color: $main-bg-color;
+      input {
+        flex: 1;
+        width: 100%;
+        border: none;
+        background: transparent;
+        font-size: 1rem;
+      }
+    }
+  }
+  .post-input-devider {
+    display: flex;
+    margin: 0 1rem;
+    height: 1px;
+    width: 100%;
+    background-color: darken($main-bg-color, 10%);
+  }
+  .post-input-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    padding-top: 1rem;
+    .post-send-btn-wrapper {
+      display: inline-block;
+      background-color: $blue;
+      border: none;
+      cursor: pointer;
+      width: 25%;
+      padding: 0.5rem;
+      border-radius: 0.2rem;
+      color: $white;
+      font-weight: bold;
+    }
+  }
+}
+
+.post-add-like-comment-area {
+  display: flex;
+  border-top: $border;
+  border-bottom: $border;
+  .item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 0;
+    margin: 0.4rem;
+    border-radius: 0.2rem;
+    &:hover {
+      background-color: lighten($main-bg-color, 0%);
+    }
+  }
+}
+
+.comments-main-container {
+  padding: 0.9rem;
+  .header {
+    h3 {
+      font-weight: bold;
+    }
+  }
+}
+
+// comment style
+
+.post-comment-container {
+  display: flex;
+  margin: 0.5rem 0;
+
+  .user-image {
+    width: 2rem;
+    .image {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 0.4rem;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .user-comment-area {
+    flex: 1;
+    background-color: darken($main-bg-color, 2%);
+    padding: 0.6rem;
+    border-radius: 1rem;
+    margin-left: 0.3rem;
+    .user-names {
+      display: flex;
+      align-items: center;
+
+      h3 {
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin: 0;
+        margin-right: 0.3rem;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      span {
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+    }
+    .comment-content {
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+  }
+}
+
+.comment-input-wrapper {
+  display: flex;
+  form {
+    display: flex;
+    flex-direction: row;
+
+    .user-container {
+      width: 2rem;
+      .image {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 0.4rem;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .form-main-container {
+      flex: 1;
+      margin-left: 0.3rem;
+      display: flex;
+      background-color: $main-bg-color;
+      padding: 0.5rem 0.7rem;
+      border-radius: 2rem;
+      .form-input {
+        flex: 1;
+        display: flex;
+        input {
+          flex: 1;
+          border: none;
+          font-size: 0.9rem;
+          background-color: transparent;
+        }
+      }
+      .send-btn {
+        margin-left: 0.5rem;
+        .send-comment-btn {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+
+          i {
+            color: $blue;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// profile page styles
+
+.user-profile-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    border-bottom: $border;
+    width: 100%;
+    padding-bottom: 3rem;
+  }
+  .user-profile-header {
+    width: 70%;
+    background-color: $blue;
+    height: 20rem;
+    border-radius: 0.8rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .profile-cover {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 40%;
+      }
+    }
+    .profile-image-wrapper {
+      position: absolute;
+      width: 9rem;
+      height: 9rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 0.3rem solid $white;
+      bottom: -1rem;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .profile-user-names {
+    margin-top: 1rem;
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+}
+
+.profile-content-wrapper {
+  width: 65%;
+  padding-top: 2rem;
+}
+
+// people you may know main styles
+
+.friends-list-main-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  box-shadow: $box-shadow;
+  margin-bottom: 1rem;
+
+  .header {
+    border-bottom: $border;
+    margin-bottom: 0.3rem;
+    padding: 0.5rem 0;
+  }
+}
+
+.friend-container {
+  display: flex;
+  margin: 0.5rem 0;
+  .image-wrapper {
+    width: 4rem;
+    .image {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0.3rem;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .friend-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .names {
+      h3 {
+        margin: 0;
+      }
+    }
+    .btns-wrapper {
+      display: flex;
+      a {
+        font-size: 0.8rem;
+        background-color: $blue;
+        border-radius: 0.3rem;
+        color: $white;
+        padding: 0.3rem;
+        font-weight: 400;
+        &:first-child {
+          margin-right: 0.3rem;
+        }
+      }
+      .remove-friend-btn {
+        background-color: $danger-color;
+      }
+    }
+  }
+}
+
+// users list styles
+
+.users-list-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 6rem;
+  .users-container {
+    width: 60%;
+    background-color: $white;
+    border-radius: 0.5rem;
+    box-shadow: $box-shadow;
+    padding: 1rem;
+    .header {
+      padding-bottom: 1rem;
+      border-bottom: $border;
+      margin-bottom: 1rem;
+    }
+
+    .users-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+
+      .user-item-wrapper {
+        display: flex;
+        border-radius: 0.3rem;
+        padding: 0.4rem;
+        &:hover {
+          background-color: $main-bg-color;
+        }
+        .user-image {
+          width: 6rem;
+          .image {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        .user-details {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .user-names {
+            display: flex;
+            flex-direction: column;
+            h3 {
+              font-size: 1.1rem;
+            }
+            span {
+              font-size: 0.9rem;
+            }
+          }
+
+          .user-btn-control {
+            display: flex;
+            a {
+              font-size: 0.8rem;
+              background-color: $blue;
+              border-radius: 0.3rem;
+              color: $white;
+              padding: 0.3rem 0.9rem;
+              font-weight: 600;
+              &:first-child {
+                margin-right: 0.3rem;
+              }
+            }
+            .add-friend {
+              background-color: transparent;
+              border: 1px solid $blue;
+              color: $blue;
+
+              &:hover {
+                background-color: lighten($blue, 40%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.login-page-main-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: $main-bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 10rem;
+  overflow-y: auto;
+
+  .login-left-area {
+    flex: 1;
+    padding-right: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .logo-image-wrapper {
+      width: 50%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .login-right-area {
+    width: 40%;
+    background-color: $white;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    form {
+      width: 100%;
+    }
+    .field {
+      display: flex;
+      flex: 1;
+      margin-bottom: 0.1rem;
+      align-items: center;
+      width: 100%;
+      .field_with_errors {
+        width: 100%;
+      }
+      &.minimun {
+        flex-direction: column;
+        align-items: flex-start;
+        em {
+          color: $blue;
+          font-size: 0.8rem;
+        }
+      }
+      input {
+        border: $border;
+        padding: 0.7rem 0.7rem;
+        background-color: transparent;
+        margin: 0;
+        font-size: 1rem;
+      }
+      label {
+        margin-top: 0.5rem;
+        cursor: pointer;
+      }
+      input[type="checkbox"] {
+        margin-right: 0.3rem;
+        cursor: pointer;
+      }
+    }
+
+    .actions-login {
+      display: flex;
+      width: 100%;
+      input[type="submit"] {
+        width: 100%;
+        background-color: $blue;
+        color: $white;
+        padding: 0.7rem;
+        cursor: pointer;
+      }
+    }
+
+    .forgot-password {
+      margin: 0.4rem 0;
+      a {
+        color: $blue;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+    }
+
+    .login-divider {
+      width: 100%;
+      height: 1px;
+      background-color: darken($main-bg-color, 10%);
+      margin: 0.5rem;
+    }
+    .forgot-password.signup {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      a {
+        width: 70%;
+        background-color: $green-color;
+        color: $white;
+        border-radius: 0.3rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// errors style
+#error_explanation {
+  h2 {
+    font-size: 0.9rem;
+  }
+  ul {
+    li {
+      font-size: 0.9rem;
+      color: $danger-color;
+    }
+  }
+}
+
+// alerts styles
+
+.notice-message {
+  position: fixed;
+  top: 4rem;
+  width: auto;
+  right: 0;
+  padding: 0.2rem 5rem;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  background-color: lighten($green-color, 30%);
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  &.alert {
+    background-color: lighten($danger-color, 40%);
+    color: $danger-color;
   }
 }
