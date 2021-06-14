@@ -6,13 +6,17 @@
     </div>
     <div class="user-details">
         <div class="user-names">
+            <h3>
+                <%= user.name.split(" ")[0].capitalize%>
+                <%= user.name.split(" ")[1].capitalize if user.name.split(" ")[1]%>
+            </h3>
             <span>
                 Joined <%= user.created_at.strftime("%Y/%m/%d") %>
             </span>
         </div>
         <div class="user-btn-control">
             <%= link_to 'See Profile',  user_path(user), class: '' %>
-            <%= link_to 'Add Friend',  user_path(user), class: 'add-friend' %>
+            <%= check_buttons(user) %>
         </div>
     </div>
 </div>
