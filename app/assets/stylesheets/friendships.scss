@@ -6,16 +6,20 @@ $green-color: #3ac47d;
 $gray-color: #6c757d;
 $blue: #1876f2;
 $white: #fff;
+
 .control-btn {
   border: none !important;
+
   &.remove {
     background-color: $danger-color !important;
     color: $white !important;
   }
+
   &.pending {
     background-color: $gray-color !important;
     color: $white !important;
   }
+
   &.reject {
     background-color: $danger-color !important;
     color: $white !important;

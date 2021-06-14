@@ -45,9 +45,11 @@ a {
 
 .container.main {
 }
+
 .navbar-main {
-  box-shadow: 0 0 1rem rgba($color: #000000, $alpha: 0.1);
+  box-shadow: 0 0 1rem rgba($color: #000, $alpha: 0.1);
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -120,6 +122,7 @@ a {
   justify-content: center;
   position: relative;
   overflow-y: auto;
+
   .app-left-side {
     width: 25%;
     top: 4rem;
@@ -136,30 +139,38 @@ a {
       border-bottom: $border;
       margin-bottom: 0.5rem;
     }
+
     a {
       flex: 1;
+
       .user-profile {
         &.last {
           margin-bottom: 3rem;
         }
+
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
         padding: 0.3rem;
         border-radius: 0.3rem;
+
         &:hover {
           background-color: darken($main-bg-color, 10%);
         }
+
         .user-image {
           width: 2.5rem;
+
           .image {
             &.microverse {
               border-radius: 0;
             }
+
             width: 2rem;
             height: 2rem;
             border-radius: 50%;
             overflow: hidden;
+
             img {
               width: 100%;
               height: 100%;
@@ -180,24 +191,30 @@ a {
     height: 100%;
     min-height: 100vh;
     overflow-y: auto;
+
     .people-you-may-know {
       margin-bottom: 2rem;
+
       .header {
         padding: 0.3rem;
         border-bottom: $border;
         margin-bottom: 0.5rem;
       }
+
       .users-wrapper {
         .time-line-user-wrapper {
           display: flex;
           margin-bottom: 0.5rem;
+
           .user-image {
             width: 3.5rem;
+
             .image {
               width: 3rem;
               height: 3rem;
               border-radius: 50%;
               overflow: hidden;
+
               img {
                 width: 100%;
                 height: 100%;
@@ -216,9 +233,11 @@ a {
               color: $blue;
               font-weight: bold;
               border: 1px solid $blue;
+
               &:hover {
                 background-color: lighten($blue, 40%);
               }
+
               &:first-child {
                 margin-right: 0.3rem;
               }
@@ -240,7 +259,6 @@ a {
   }
 }
 
-.new_post,
 .new_comment {
   display: flex;
   flex-direction: column;
@@ -416,6 +434,7 @@ form {
     }
   }
 }
+
 .all-posts-wrapper {
   width: 100%;
 }
@@ -425,10 +444,12 @@ form {
     transform: translate(0, 0.3rem);
   }
 }
+
 .button.is-primary {
   background-color: $blue !important;
   padding: 0.2rem 0.6rem !important;
 }
+
 .buttons {
 }
 
@@ -514,40 +535,48 @@ form {
   margin-bottom: 1rem;
   background-color: $white;
   box-shadow: $box-shadow;
+
   .post-header {
     padding: 0.9rem;
     display: flex;
     align-items: center;
+
     .post-author-image-wrapper {
       width: 2.5rem;
       margin-right: 0.5rem;
+
       .image {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
         overflow: hidden;
+
         img {
           width: 100%;
           height: 100%;
         }
       }
     }
+
     .author-names {
       h3 {
         margin: 0;
         margin-bottom: -0.4rem;
+
         &:hover {
           text-decoration: underline;
         }
       }
+
       span {
         font-size: 0.8rem;
         font-weight: bold;
-        color: lighten($color: #000000, $amount: 50%);
+        color: lighten($color: #000, $amount: 50%);
         margin: 0;
       }
     }
   }
+
   .post-image {
     display: none;
     width: 100%;
@@ -556,12 +585,15 @@ form {
       width: 100%;
     }
   }
+
   .liked-icon {
     color: $danger-color;
   }
+
   .content {
     padding: 0 0.9rem;
   }
+
   .post-details {
     border-left: 0.2rem solid $blue;
     border-top: $border;
@@ -569,9 +601,11 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     .post-likes-container {
       display: flex;
     }
+
     .like-count-icon {
       width: 1.3rem;
       height: 1.3rem;
@@ -579,20 +613,24 @@ form {
       justify-content: center;
       align-items: center;
       margin-right: 0.4rem;
+
       i {
         color: $white;
       }
     }
+
     .post-comment-count {
       display: flex;
       color: lighten(#000, 40%);
       font-size: 1rem;
+
       span {
         margin-right: 0.4rem;
         font-size: 1rem;
         font-weight: normal;
       }
     }
+
     span {
       font-weight: normal;
       margin-right: 0.5rem;
@@ -603,6 +641,7 @@ form {
 .new_post {
   width: 100%;
 }
+
 .post-input-main-container {
   background-color: $white;
   border-radius: 0.5rem;
@@ -611,22 +650,26 @@ form {
   flex-direction: column;
   width: 100%;
   margin-bottom: 2rem;
+
   .image-input-wrapper {
     display: flex;
     padding: 0.9rem 0.9rem;
     width: 100%;
     flex: 1;
+
     .image {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       overflow: hidden;
       margin-right: 0.5rem;
+
       img {
         width: 100%;
         height: 100%;
       }
     }
+
     .text-field-container {
       flex: 1;
       display: flex;
@@ -635,6 +678,7 @@ form {
       overflow: hidden;
       padding: 0 1rem;
       background-color: $main-bg-color;
+
       input {
         flex: 1;
         width: 100%;
@@ -644,6 +688,7 @@ form {
       }
     }
   }
+
   .post-input-devider {
     display: flex;
     margin: 0 1rem;
@@ -651,12 +696,14 @@ form {
     width: 100%;
     background-color: darken($main-bg-color, 10%);
   }
+
   .post-input-footer {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0 1rem;
     padding-top: 1rem;
+
     .post-send-btn-wrapper {
       display: inline-block;
       background-color: $blue;
@@ -675,6 +722,7 @@ form {
   display: flex;
   border-top: $border;
   border-bottom: $border;
+
   .item {
     flex: 1;
     display: flex;
@@ -683,6 +731,7 @@ form {
     padding: 0.3rem 0;
     margin: 0.4rem;
     border-radius: 0.2rem;
+
     &:hover {
       background-color: lighten($main-bg-color, 0%);
     }
@@ -691,6 +740,7 @@ form {
 
 .comments-main-container {
   padding: 0.9rem;
+
   .header {
     h3 {
       font-weight: bold;
@@ -706,24 +756,28 @@ form {
 
   .user-image {
     width: 2rem;
+
     .image {
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
       overflow: hidden;
       margin-right: 0.4rem;
+
       img {
         width: 100%;
         height: 100%;
       }
     }
   }
+
   .user-comment-area {
     flex: 1;
     background-color: darken($main-bg-color, 2%);
     padding: 0.6rem;
     border-radius: 1rem;
     margin-left: 0.3rem;
+
     .user-names {
       display: flex;
       align-items: center;
@@ -733,15 +787,18 @@ form {
         font-weight: 600;
         margin: 0;
         margin-right: 0.3rem;
+
         &:hover {
           text-decoration: underline;
         }
       }
+
       span {
         font-size: 0.75rem;
         font-weight: 600;
       }
     }
+
     .comment-content {
       font-size: 0.9rem;
       font-weight: 400;
@@ -751,24 +808,28 @@ form {
 
 .comment-input-wrapper {
   display: flex;
+
   form {
     display: flex;
     flex-direction: row;
 
     .user-container {
       width: 2rem;
+
       .image {
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
         overflow: hidden;
         margin-right: 0.4rem;
+
         img {
           width: 100%;
           height: 100%;
         }
       }
     }
+
     .form-main-container {
       flex: 1;
       margin-left: 0.3rem;
@@ -776,9 +837,11 @@ form {
       background-color: $main-bg-color;
       padding: 0.5rem 0.7rem;
       border-radius: 2rem;
+
       .form-input {
         flex: 1;
         display: flex;
+
         input {
           flex: 1;
           border: none;
@@ -786,8 +849,10 @@ form {
           background-color: transparent;
         }
       }
+
       .send-btn {
         margin-left: 0.5rem;
+
         .send-comment-btn {
           background-color: transparent;
           border: none;
@@ -817,15 +882,17 @@ form {
     flex-direction: column;
     align-items: center;
     background: rgb(255, 255, 255);
-    background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 1) 25%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
+    background:
+      linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 25%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
     border-bottom: $border;
     width: 100%;
     padding-bottom: 3rem;
   }
+
   .user-profile-header {
     width: 70%;
     background-color: $blue;
@@ -835,16 +902,19 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .profile-cover {
       width: 100%;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+
       img {
         width: 40%;
       }
     }
+
     .profile-image-wrapper {
       position: absolute;
       width: 9rem;
@@ -853,6 +923,7 @@ form {
       overflow: hidden;
       border: 0.3rem solid $white;
       bottom: -1rem;
+
       img {
         width: 100%;
         height: 100%;
@@ -862,6 +933,7 @@ form {
 
   .profile-user-names {
     margin-top: 1rem;
+
     h3 {
       font-size: 2.2rem;
       font-weight: 600;
@@ -896,13 +968,16 @@ form {
 .friend-container {
   display: flex;
   margin: 0.5rem 0;
+
   .image-wrapper {
     width: 4rem;
+
     .image {
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 0.3rem;
       overflow: hidden;
+
       img {
         width: 100%;
         height: 100%;
@@ -914,19 +989,23 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .names {
       h3 {
         margin: 0;
       }
     }
+
     .btns-wrapper {
       display: flex;
+
       a {
         font-size: 0.8rem;
         border-radius: 0.3rem;
         color: $white;
         padding: 0.3rem;
         font-weight: 400;
+
         &:first-child {
           margin-right: 0.3rem;
         }
@@ -944,12 +1023,14 @@ form {
   width: 100%;
   min-height: 100vh;
   padding-top: 6rem;
+
   .users-container {
     width: 60%;
     background-color: $white;
     border-radius: 0.5rem;
     box-shadow: $box-shadow;
     padding: 1rem;
+
     .header {
       padding-bottom: 1rem;
       border-bottom: $border;
@@ -965,32 +1046,40 @@ form {
         display: flex;
         border-radius: 0.3rem;
         padding: 0.4rem;
+
         &:hover {
           background-color: $main-bg-color;
         }
+
         .user-image {
           width: 6rem;
+
           .image {
             width: 5rem;
             height: 5rem;
             border-radius: 0.3rem;
             overflow: hidden;
+
             img {
               width: 100%;
               height: 100%;
             }
           }
         }
+
         .user-details {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+
           .user-names {
             display: flex;
             flex-direction: column;
+
             h3 {
               font-size: 1.1rem;
             }
+
             span {
               font-size: 0.9rem;
             }
@@ -1006,10 +1095,12 @@ form {
               background-color: $blue;
               border-radius: 0.3rem;
               color: $white;
+
               &:first-child {
                 margin-right: 0.3rem;
               }
             }
+
             .add-friend {
               &:hover {
                 background-color: lighten($blue, 40%);
@@ -1043,13 +1134,16 @@ form {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+
     .logo-image-wrapper {
       width: 50%;
+
       img {
         width: 100%;
       }
     }
   }
+
   .login-right-area {
     width: 40%;
     background-color: $white;
@@ -1059,26 +1153,32 @@ form {
     flex-direction: column;
     align-items: center;
     padding: 0.7rem 1rem;
+
     form {
       width: 100%;
     }
+
     .field {
       display: flex;
       flex: 1;
       margin-bottom: 0.1rem;
       align-items: center;
       width: 100%;
+
       .field_with_errors {
         width: 100%;
       }
+
       &.minimun {
         flex-direction: column;
         align-items: flex-start;
+
         em {
           color: $blue;
           font-size: 0.8rem;
         }
       }
+
       input {
         border: $border;
         padding: 0.7rem 0.7rem;
@@ -1086,10 +1186,12 @@ form {
         margin: 0;
         font-size: 1rem;
       }
+
       label {
         margin-top: 0.5rem;
         cursor: pointer;
       }
+
       input[type="checkbox"] {
         margin-right: 0.3rem;
         cursor: pointer;
@@ -1099,6 +1201,7 @@ form {
     .actions-login {
       display: flex;
       width: 100%;
+
       input[type="submit"] {
         width: 100%;
         background-color: $blue;
@@ -1110,6 +1213,7 @@ form {
 
     .forgot-password {
       margin: 0.4rem 0;
+
       a {
         color: $blue;
         font-weight: 600;
@@ -1123,10 +1227,12 @@ form {
       background-color: darken($main-bg-color, 10%);
       margin: 0.5rem;
     }
+
     .forgot-password.signup {
       display: flex;
       width: 100%;
       justify-content: center;
+
       a {
         width: 70%;
         background-color: $green-color;
@@ -1145,6 +1251,7 @@ form {
   h2 {
     font-size: 0.9rem;
   }
+
   ul {
     li {
       font-size: 0.9rem;
@@ -1167,6 +1274,7 @@ form {
   background-color: lighten($green-color, 30%);
   font-size: 0.9rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
   &.alert {
     background-color: lighten($danger-color, 40%);
     color: $danger-color;
@@ -1184,6 +1292,7 @@ form {
     padding: 0.3rem 0.9rem;
     font-weight: 600;
     border-radius: 0.3rem;
+
     &:first-child {
       margin-right: 0.3rem;
     }
