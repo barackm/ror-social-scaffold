@@ -12,6 +12,7 @@ $blue: #1876f2;
 $border: 1px solid darken($main-bg-color, 10%);
 $danger-color: rgb(224, 36, 94);
 $green-color: #3ac47d;
+$gray-color: #6c757d;
 
 * {
   margin: 0;
@@ -83,6 +84,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 .notice,
@@ -112,17 +114,17 @@ a {
 .timeline-main-area {
   padding-top: 4rem;
   width: 60%;
+  min-height: 100vh;
   background-color: $main-bg-color;
   display: flex;
   justify-content: center;
   position: relative;
   overflow-y: auto;
-  height: 100%;
-  bottom: 0;
   .app-left-side {
     width: 25%;
     top: 4rem;
     position: fixed;
+    min-height: 100vh;
     left: 0;
     padding: 2rem 1rem;
     overflow-y: auto;
@@ -176,6 +178,7 @@ a {
     padding: 2rem 1rem;
     padding-bottom: 3rem;
     height: 100%;
+    min-height: 100vh;
     overflow-y: auto;
     .people-you-may-know {
       margin-bottom: 2rem;
@@ -205,21 +208,14 @@ a {
           .user-btns {
             margin-top: 0.5rem;
             display: flex;
-            .remove {
-              border-color: $danger-color;
-              color: $danger-color;
-              &:hover {
-                background-color: lighten($danger-color, 40%);
-              }
-            }
+
             a {
               font-size: 0.8rem;
-              background-color: transparent;
-              border: 1px solid $blue;
               padding: 0.2rem 0.5rem;
               border-radius: 0.3rem;
               color: $blue;
               font-weight: bold;
+              border: 1px solid $blue;
               &:hover {
                 background-color: lighten($blue, 40%);
               }
@@ -927,7 +923,6 @@ form {
       display: flex;
       a {
         font-size: 0.8rem;
-        background-color: $blue;
         border-radius: 0.3rem;
         color: $white;
         padding: 0.3rem;
@@ -935,9 +930,6 @@ form {
         &:first-child {
           margin-right: 0.3rem;
         }
-      }
-      .remove-friend-btn {
-        background-color: $danger-color;
       }
     }
   }
@@ -1006,22 +998,19 @@ form {
 
           .user-btn-control {
             display: flex;
+
             a {
               font-size: 0.8rem;
+              padding: 0.3rem 0.9rem;
+              font-weight: 600;
               background-color: $blue;
               border-radius: 0.3rem;
               color: $white;
-              padding: 0.3rem 0.9rem;
-              font-weight: 600;
               &:first-child {
                 margin-right: 0.3rem;
               }
             }
             .add-friend {
-              background-color: transparent;
-              border: 1px solid $blue;
-              color: $blue;
-
               &:hover {
                 background-color: lighten($blue, 40%);
               }
@@ -1181,5 +1170,22 @@ form {
   &.alert {
     background-color: lighten($danger-color, 40%);
     color: $danger-color;
+  }
+}
+
+.see-profile-btn {
+  background-color: $blue !important;
+  color: $white !important;
+}
+
+.profile-invite-btn {
+  a {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.9rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    &:first-child {
+      margin-right: 0.3rem;
+    }
   }
 }

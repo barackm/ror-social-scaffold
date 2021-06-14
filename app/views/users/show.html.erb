@@ -13,6 +13,9 @@
                 <%= @user.name.split(" ")[0].capitalize%>
                 <%= @user.name.split(" ")[1].capitalize if @user.name.split(" ")[1]%>
             </h3>
+            <div class="profile-invite-btn">
+                <%= check_buttons(@user) if @user.id != current_user.id%>
+            </div>
         </div>
     </div>
 

@@ -13,7 +13,7 @@
         </div>
         <div class="btns-wrapper">
             <%= link_to 'See Profile',  user_path(friend), class: 'see-profile-btn' %>
-            <%= link_to 'Remove Friend',  user_path(friend), class: 'remove-friend-btn' %>
+            <%= check_buttons(friend) %>
         </div>
     </div>
 </div>

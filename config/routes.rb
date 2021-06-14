@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users 
   resources :users do
-    resources :friendships, only: [:create, :destroy]
+    post "/friendship/confirm", to: "friendships#confirm"
+    delete "friendships/", to: "friendships#destroy"
+    delete "friendships-request/", to: "friendships#destroy_invitation"
+    resources :friendships, only: [:create, :destroy] 
   end
 
   resources :users, only: [:index, :show]
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
   end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

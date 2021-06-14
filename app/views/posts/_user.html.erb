@@ -13,7 +13,7 @@
         </div>
         <div class="user-btns">
             <%= link_to 'See Profile',  user_path(user), class: '' %>
-            <%= link_to 'Remove Friend',  user_path(user), class: 'remove' %>
+            <%= check_buttons(user) %>
         </div>
     </div>
 </div>
