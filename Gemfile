@@ -41,7 +41,7 @@ gem 'devise'
 
 gem 'gravtastic'
 
-gem "bulma-rails", "~> 0.9.1"
+gem 'bulma-rails', '~> 0.9.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
