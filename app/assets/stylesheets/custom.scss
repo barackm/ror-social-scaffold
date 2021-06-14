@@ -207,7 +207,7 @@ a {
   display: flex;
   flex-direction: column;
   border-radius: 0.5rem;
-  border-bottom: 1px solid lighten(#000, 70%); /* stylelint-disable */ 
+  border-bottom: 1px solid lighten(#000, 70%); /* stylelint-disable */
   margin-bottom: 1rem;
   background-color: $white;
   box-shadow: $box-shadow;
@@ -879,12 +879,11 @@ form {
     flex-direction: column;
     align-items: center;
     background: rgb(255, 255, 255);
-    background:
-      linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 1) 25%,
-        rgba(0, 0, 0, 0.7) 100%
-      );
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
     border-bottom: $border;
     width: 100%;
     padding-bottom: 3rem;
@@ -940,7 +939,7 @@ form {
 }
 
 .profile-content-wrapper {
-  width: 65%;
+  width: 70%;
   padding-top: 2rem;
 }
 
@@ -1296,4 +1295,8 @@ form {
   }
 }
 
-/* stylelint-enable selector-no-id, no-descending-specificity */ 
+.new_post {
+  width: 100%;
+}
+
+/* stylelint-enable selector-no-id, no-descending-specificity */

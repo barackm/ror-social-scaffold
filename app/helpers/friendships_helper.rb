@@ -2,7 +2,7 @@ module FriendshipsHelper
   def check_buttons(user)
     if user.id == current_user.id
       ''
-    elsif Friendship.friend_with?(current_user.id, user.id)
+    elsif current_user.friends.any? {|f| f.id == user.id || f.id == user.id}
       link_to('Remove', user_friendships_path(user), method: :delete, class: 'control-btn remove')
     elsif current_user.pending_sent_friendship_requests.any? { |f| f.id == user.id }
       link_to('Pending', user_friendships_request_path(user), method: :delete, class: 'control-btn pending')
