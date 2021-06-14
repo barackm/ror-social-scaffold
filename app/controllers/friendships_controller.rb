@@ -9,39 +9,36 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy_invitation
-    friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status:"pending") ||
-    current_user.friendships.find_by(friend_id: params[:user_id], status:"pending")
-    
-    if(friendship && friendship.destroy)
+    friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status: 'pending') ||
+                 current_user.friendships.find_by(friend_id: params[:user_id], status: 'pending')
+
+    if friendship && friendship.destroy
       flash[:notice] = 'Friendship removed.'
-      redirect_to root_path  
     else
       flash[:alert] = 'Friendship not removed.'
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def destroy
-    friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status:"confirmed") ||
-    current_user.friendships.find_by(friend_id: params[:user_id], status:"confirmed")
-    
-    if(friendship && friendship.destroy)
+    friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status: 'confirmed') ||
+                 current_user.friendships.find_by(friend_id: params[:user_id], status: 'confirmed')
+
+    if friendship && friendship.destroy
       flash[:notice] = 'Friendship removed.'
-      redirect_to root_path  
     else
       flash[:alert] = 'Friendship not removed.'
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
-  def confirm 
-    friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status:"pending")
-    if(friendship && friendship.update(status: "confirmed"))
+  def confirm
+    friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status: 'pending')
+    if friendship && friendship.update(status: 'confirmed')
       flash[:notice] = 'Friendship confirmed.'
-      redirect_to root_path
-    else 
+    else
       flash[:alert] = 'Friendship not confirmed.'
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 end
