@@ -34,10 +34,6 @@ RSpec.describe Friendship, type: :model do
       end
     end
   end
-
-  describe 'validations' do
-    it { should validate_presence_of(:status) }
-  end
 end
 
 # rubocop:enable Lint/UselessAssignment
