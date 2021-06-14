@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
     friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status: 'pending') ||
                  current_user.friendships.find_by(friend_id: params[:user_id], status: 'pending')
 
-    if friendship && friendship.destroy
+    if friendship&.destroy
       flash[:notice] = 'Friendship removed.'
     else
       flash[:alert] = 'Friendship not removed.'
@@ -24,7 +24,7 @@ class FriendshipsController < ApplicationController
     friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status: 'confirmed') ||
                  current_user.friendships.find_by(friend_id: params[:user_id], status: 'confirmed')
 
-    if friendship && friendship.destroy
+    if friendship&.destroy
       flash[:notice] = 'Friendship removed.'
     else
       flash[:alert] = 'Friendship not removed.'
@@ -34,7 +34,7 @@ class FriendshipsController < ApplicationController
 
   def confirm
     friendship = current_user.received_friendships.find_by(user_id: params[:user_id], status: 'pending')
-    if friendship && friendship.update(status: 'confirmed')
+    if friendship&.update(status: 'confirmed')
       flash[:notice] = 'Friendship confirmed.'
     else
       flash[:alert] = 'Friendship not confirmed.'
