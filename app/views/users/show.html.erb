@@ -1,9 +1,89 @@
-<section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
-  <article class="timeline">
-    <h3>Recent posts:</h3>
-    <ul class="posts">
-      <%= render @posts %>
-    </ul>
-  </article>
+<section class="user-profile-main-container">
+    <div class="header-wrapper">
+        <div class="user-profile-header">
+            <div class="profile-cover">
+                <%= image_tag("https://assets-global.website-files.com/5dbb30f00775d4c32191a4df/5e30ae0c4081806a8f50a7df_horizontal-logo-white.png") %>
+            </div>
+            <div class="profile-image-wrapper">
+                <%= image_tag(@user.gravatar_url)%>
+            </div>
+        </div>
+        <div class="profile-user-names">
+            <h3>
+                <%= @user.name.split(" ")[0].capitalize%>
+                <%= @user.name.split(" ")[1].capitalize if @user.name.split(" ")[1]%>
+            </h3>
+            <div class="profile-invite-btn">
+                <%= check_buttons(@user) if @user.id != current_user.id%>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-content-wrapper columns">
+        <div class="column">
+            <div class="friends-list-main-container">
+                <div class="header">
+                    <h3><%= @user.name.split(" ")[0].capitalize%>'s friends</h3>
+                </div>
+                <div class="friends-list-wrapper">
+                    <% @user.friends.each do |friend|%>
+                    <%= render "friend", friend: friend %>
+                    <%end%>
+                </div>
+            </div>
+            <% if current_user.id == @user.id %>
+            <div class="friends-list-main-container">
+                <div class="header">
+                    <h3>Received Friendship requests</h3>
+                </div>
+                <div class="friends-list-wrapper">
+                    <% current_user.recieved_friendship_requests.each do |friend|%>
+                    <%= render "friend", friend: friend %>
+                    <%end%>
+                </div>
+            </div>
+            <div class="friends-list-main-container">
+                <div class="header">
+                    <h3>Sent Friendship requests</h3>
+                </div>
+                <div class="friends-list-wrapper">
+                    <% @user.pending_sent_friendship_requests.each do |friend|%>
+                    <%= render "friend", friend: friend %>
+                    <%end%>
+                </div>
+            </div>
+            <%end%>
+        </div>
+        <div class="column is-two-thirds">
+            <article class="timeline-profile">
+                <% if current_user.id == @user.id%>
+                <div class="post-input-main-container">
+                    <%= form_for(@post) do |form| %>
+                    <div class="image-input-wrapper">
+                        <div class="image">
+                            <%= image_tag(current_user.gravatar_url)%>
+                        </div>
+                        <div class="text-field-container">
+                            <%= form.text_field :content, id: :post_content, placeholder: "What's on your mind? "%>
+                        </div>
+                    </div>
+                    <div class="post-input-devider">
+                    </div>
+                    <div class="post-input-footer">
+                        <%= display_errors(@post) %>
+                        <%= button_tag type: 'submit', class: "post-send-btn-wrapper", id: "register-button" do %>
+                        <i class='bi bi-cursor-fill'></i> Post
+                        <% end %>
+                    </div>
+                    <% end %>
+                </div>
+                <%end%>
+                <ul class="posts">
+                    <%= render @posts %>
+                </ul>
+            </article>
+        </div>
+
+    </div>
+
 </section>
