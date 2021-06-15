@@ -10,7 +10,7 @@
 
 > Unit tests and Integration test were added as well (RSpec/Capybara/Shoulda).
 
-> Deployment implemented with Heroku
+> Deployment implemented with Heroku.
 
 ## Built With
 
