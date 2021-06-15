@@ -4,11 +4,12 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     timeline_posts
+    @users = User.where.not(id: current_user.id)
   end
 
   def create
     @post = current_user.posts.new(post_params)
-
+    @users = User.where.not(id: current_user.id)
     if @post.save
       redirect_to posts_path, notice: 'Post was successfully created.'
     else
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    @timeline_posts ||= Post.all.ordered_by_most_recent.includes(:user)
+    @timeline_posts = current_user.friends_and_own_posts
   end
 
   def post_params

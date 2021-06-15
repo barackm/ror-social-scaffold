@@ -1,0 +1,19 @@
+<div class="friend-container">
+    <div class="image-wrapper">
+        <div class="image">
+            <%= image_tag(friend.gravatar_url)%>
+        </div>
+    </div>
+    <div class="friend-details">
+        <div class="names">
+            <h3>
+                <%= friend.name.split(" ")[0].capitalize%>
+                <%= friend.name.split(" ")[1].capitalize if friend.name.split(" ")[1]%>
+            </h3>
+        </div>
+        <div class="btns-wrapper">
+            <%= link_to 'See Profile',  user_path(friend), class: 'see-profile-btn' %>
+            <%= check_buttons(friend) %>
+        </div>
+    </div>
+</div>

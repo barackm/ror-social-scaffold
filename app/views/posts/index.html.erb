@@ -1,15 +1,167 @@
-<%= form_for(@post) do |form| %>
-  <%= form.label :content %>
-  <%= form.text_field :content, id: :post_content, class: 'form-control', placeholder: 'Add New Post' %>
-  <%= display_errors(@post) %>
-  <%= form.submit 'Save', class: 'btn btn-primary' %>
-<% end %>
+<div class="timeline-main-area">
+    <div class="app-left-side">
+        <%= link_to user_path(current_user) do%>
+        <div class="user-profile">
+            <div class="user-image">
+                <div class="image">
+                    <%= image_tag(current_user.gravatar_url)%>
+                </div>
+            </div>
+            <div class="user-images">
+                <h3>
+                    <%= current_user.name.split(" ")[0].capitalize%>
+                    <%= current_user.name.split(" ")[1].capitalize if current_user.name.split(" ")[1]%>
+                </h3>
+            </div>
+        </div>
+        <%end%>
+        <%= link_to user_path(current_user) do%>
+        <div class="user-profile">
+            <div class="user-image">
+                <div class="image">
+                    <%= image_tag("https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/S0U5ECzYUSu.png?_nc_eui2=AeHVRGgQCjBHBH-RvX2yLOF5qfpKmA4GtxSp-kqYDga3FKLNhSogMhpFpmcOHJclR8fWpNd1cWT-gE7SLs6AtlUv")%>
+                </div>
+            </div>
+            <div class="user-images">
+                <h3>
+                    Friends
+                </h3>
+            </div>
+        </div>
+        <%end%>
+        <%= link_to user_path(current_user) do%>
+        <div class="user-profile">
+            <div class="user-image">
+                <div class="image">
+                    <%= image_tag("https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/kyCAf2jbZvF.png?_nc_eui2=AeEkkCxXS2KR4oYILEOfRvDptEPFOzh_t-u0Q8U7OH-365eRiiNQKEDek89xYcu7cRS2ihcbnAQC8OmGRiAMtv9Z")%>
+                </div>
+            </div>
+            <div class="user-images">
+                <h3>
+                    Friendship Requests
+                </h3>
+            </div>
+        </div>
+        <%end%>
+        <%= link_to user_path(current_user) do%>
+        <div class="user-profile">
+            <div class="user-image">
+                <div class="image">
+                    <%= image_tag("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/PrjLkDYpYbH.png?_nc_eui2=AeHlYu61eGcF7ftQDZmKn8lPZ3xAUM5_bWpnfEBQzn9tai0eNsJBKrl9W07wRzjWTYsdOZMdKaWzLJRnnv0BznAs")%>
+                </div>
+            </div>
+            <div class="user-images">
+                <h3>
+                    Groups
+                </h3>
+            </div>
+        </div>
+        <%end%>
+        <div class="authors-names">
+            <h3>Authors</h3>
+        </div>
 
-<article class="timeline">
-  <h3>
-    Recent posts
-  </h3>
-  <ul class="posts">
-    <%= render @timeline_posts %>
-  </ul>
-</article>
+        <%= link_to "https://www.linkedin.com/in/baraka-mukelenga/",target: "_blank" do%>
+        <div class="user-profile">
+            <div class="user-image">
+                <div class="image">
+                    <%= image_tag("https://ca.slack-edge.com/T47CT8XPG-U01NKP0NREF-c894e3426b72-512")%>
+                </div>
+            </div>
+            <div class="user-images">
+                <h3>
+                    Barack Mukelenga
+                </h3>
+            </div>
+        </div>
+        <%end%>
+        <%= link_to "https://www.linkedin.com/in/srizzuto/",target: "_blank" do%>
+        <div class="user-profile">
+            <div class="user-image">
+                <div class="image">
+                    <%= image_tag("https://ca.slack-edge.com/T47CT8XPG-U01QKHGNZLZ-b0d9d9c012d5-512")%>
+                </div>
+            </div>
+            <div class="user-images">
+                <h3>
+                    Sebastián Rizzuto
+                </h3>
+            </div>
+        </div>
+        <%end%>
+        <div class="authors-names">
+            <h3>School</h3>
+        </div>
+        <%= link_to "https://www.microverse.org/",target: "_blank" do%>
+        <div class="user-profile last">
+            <div class="user-image">
+                <div class="image microverse">
+                    <%= image_tag("logo.png")%>
+                </div>
+            </div>
+            <div class="user-images">
+                <h3>
+                    Microverse
+                </h3>
+            </div>
+        </div>
+        <%end%>
+    </div>
+    <div class="application-middle-area">
+        <div class="post-input-main-container">
+            <%= form_for(@post) do |form| %>
+            <div class="image-input-wrapper">
+                <div class="image">
+                    <%= image_tag(current_user.gravatar_url)%>
+                </div>
+                <div class="text-field-container">
+                    <%= form.text_field :content, id: :post_content, placeholder: "What's on your mind?"%>
+                </div>
+            </div>
+            <div class="post-input-devider">
+            </div>
+            <div class="post-input-footer">
+                <%= display_errors(@post) %>
+                <%= button_tag type: 'submit', class: "post-send-btn-wrapper", id: "register-button" do %>
+                <i class='bi bi-cursor-fill'></i> Post
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+
+        <article class="all-posts-wrapper">
+            <h3>
+                Recent posts
+            </h3>
+            <ul class="posts">
+                <%= render @timeline_posts %>
+            </ul>
+        </article>
+    </div>
+    <div class="app-right-side">
+        <div class="people-you-may-know">
+            <div class="header">
+                <h3>People you may know</h3>
+            </div>
+
+            <div class="users-wrapper">
+                <% @users.each do |user| %>
+                <%= render "user", user: user %>
+                <%end%>
+            </div>
+        </div>
+
+        <div class="people-you-may-know">
+            <div class="header">
+                <h3>Friendship requests you sent</h3>
+            </div>
+
+            <div class="users-wrapper">
+                <% current_user.requested_friends.each do |user| %>
+                <%= render "user", user: user %>
+                <%end%>
+            </div>
+        </div>
+
+    </div>
+</div>

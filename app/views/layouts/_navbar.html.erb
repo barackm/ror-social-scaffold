@@ -1,0 +1,44 @@
+<nav class="navbar is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <%= link_to root_path do %>
+        <span class="navbar-item logo-header">
+            <%= image_tag("logo.png")%>
+        </span>
+        <%end %>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <%= link_to 'Timeline', posts_path, class:"navbar-item" %>
+            <%= link_to 'All users', users_path, class:"navbar-item" %>
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <% if current_user %>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                    <span class="button is-primary">
+                        <strong>Sign out</strong>
+                    </span>
+                    <%end %>
+                    <% else %>
+                    <%= link_to user_session_path do %>
+                    <span class="button is-primary">
+                        <strong>Sign in</strong>
+                    </span>
+                    <%end %>
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

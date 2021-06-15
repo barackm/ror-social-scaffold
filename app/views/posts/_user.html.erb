@@ -1,4 +1,4 @@
-<div class="user-item-wrapper">
+<div class="time-line-user-wrapper">
     <div class="user-image">
         <div class="image">
             <%= image_tag(user.gravatar_url)%>
@@ -10,11 +10,8 @@
                 <%= user.name.split(" ")[0].capitalize%>
                 <%= user.name.split(" ")[1].capitalize if user.name.split(" ")[1]%>
             </h3>
-            <span>
-                Joined <%= user.created_at.strftime("%Y/%m/%d") %>
-            </span>
         </div>
-        <div class="user-btn-control">
+        <div class="user-btns">
             <%= link_to 'See Profile',  user_path(user), class: '' %>
             <%= check_buttons(user) %>
         </div>
