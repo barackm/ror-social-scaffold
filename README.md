@@ -1,5 +1,6 @@
 ![](https://i.ibb.co/5rvJTQV/ror-social-media-ss.png)
-![](https://i.ibb.co/KcZqCWQ/Image-from-i-OS.jpg)
+![](https://s1.im.ge/2021/06/15/Qe7XG.png)
+![](https://s1.im.ge/2021/06/15/QesKL.png)
 
 # Scaffold for social media app with Ruby on Rails
 

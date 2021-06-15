@@ -37,7 +37,7 @@
                     <h3>Received Friendship requests</h3>
                 </div>
                 <div class="friends-list-wrapper">
-                    <% current_user.received_friendships.each do |friend|%>
+                    <% current_user.pending_friends.each do |friend|%>
                     <%= render "friend", friend: friend %>
                     <%end%>
                 </div>
