@@ -13,32 +13,22 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_many :friendships
-  has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :received_friendships, -> { where status: 'pending' }, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :pending_friends, through: :received_friendships, source: :user
 
-  def friends
-    my_friends = []
-    friendships.each { |f| my_friends << f.friend if f.status == 'confirmed' }
-    received_friendships.each { |f| my_friends << f.user if f.status == 'confirmed' }
+  has_many :sent_friendships, -> { where status: 'pending' }, class_name: 'Friendship', foreign_key: 'user_id'
+  has_many :requested_friends, through: :sent_friendships, source: :friend
 
-    my_friends
+  has_many :confirmed_friendships, -> { where status: 'confirmed' }, class_name: 'Friendship'
+  has_many :friends, through: :confirmed_friendships
+
+  def send_friendship_request(user_id)
+    friend = Friendship.new(user_id: id, friend_id: user_id)
+    friend.save
   end
 
-  def pending_sent_friendship_requests
-    my_friends = []
-    friendships.each { |f| my_friends << f.friend if f.status == 'pending' }
-
-    my_friends
-  end
-
-  def send_friendship_request(friend_id, current_user_id)
-    friend = friendships.build(friend_id: friend_id)
-    friend.save unless Friendship.sent_friendship_request?(current_user_id, friend_id)
-  end
-
-  def recieved_friendship_requests
-    my_friends = []
-    received_friendships.each { |f| my_friends << f.user if f.status == 'pending' }
-
-    my_friends
+  def friends_and_own_posts
+    Post.where(user: (friends.to_a << self))
+    # This will produce SQL query with IN. Something like: select * from posts where user_id IN (1,45,874,43);
   end
 end

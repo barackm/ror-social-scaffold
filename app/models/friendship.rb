@@ -18,6 +18,13 @@ class Friendship < ApplicationRecord
     friendship.empty? ? false : true
   end
 
+  def confirm_friend
+    update(status: 'confirmed')
+    Friendship.create!(friend_id: user_id,
+                       user_id: friend_id,
+                       status: 'confirmed')
+  end
+
   private
 
   def add_default_values
