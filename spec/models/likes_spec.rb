@@ -12,7 +12,7 @@ describe 'like process', type: :feature do
     visit '/posts/'
     fill_in 'What\'s on your mind?', with: 'this is a content'
     click_button 'Post'
-    click_button 'Like'
+    click_link 'Like'
     expect(page).to have_text('You liked a post.')
   end
 end
