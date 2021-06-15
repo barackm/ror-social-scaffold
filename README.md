@@ -1,11 +1,21 @@
+![](https://i.ibb.co/5rvJTQV/ror-social-media-ss.png)
+![](https://s1.im.ge/2021/06/15/Qe7XG.png)
+![](https://s1.im.ge/2021/06/15/QesKL.png)
+
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> This project provides a social media website created with Ruby on Rails. We tried to implement a UX based on Facebook, so the user will find that he/she can log in, create a post, comment it, like it, add a friend, remove it at will and reject or accept a request for friendship.
+
+> The goal of this project was to apply MVC configuration, Forms, Active Record, Associations, Session, Cookies and Authentication, Callbacks and more.
+
+> Unit tests and Integration test were added as well (RSpec/Capybara/Shoulda).
+
+> Deployment implemented with Heroku
 
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby v3.0.0
+- Ruby on Rails v6.1.3.2
 
 ## Live Demo
 

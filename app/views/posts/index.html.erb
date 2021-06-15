@@ -157,7 +157,7 @@
             </div>
 
             <div class="users-wrapper">
-                <% current_user.pending_sent_friendship_requests.each do |user| %>
+                <% current_user.requested_friends.each do |user| %>
                 <%= render "user", user: user %>
                 <%end%>
             </div>

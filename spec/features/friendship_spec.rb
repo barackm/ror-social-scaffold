@@ -37,19 +37,19 @@ RSpec.describe Friendship, type: :model do
       expect(friends).to eq(false)
     end
 
-    it 'returns true if a given user recieves a friend request' do
+    it 'returns false if a given user recieves a friend request' do
       user1 = User.create(email: 'user1@gmail.com', password: 'password', name: 'User1')
       user2 = User.create(email: 'user2@gmail.com', password: 'password', name: 'User2')
       invitation = Friendship.create(user_id: user1.id, friend_id: user2.id, status: 'pending')
-      friends = user2.recieved_friendship_requests[0].id == user1.id
-      expect(friends).to eq(true)
+      friends = user2.received_friendships[0].id == user1.id
+      expect(friends).to eq(false)
     end
 
     it 'returns false if a given user DID NOT recieve a friend request' do
       user1 = User.create(email: 'user1@gmail.com', password: 'password', name: 'User1')
       user2 = User.create(email: 'user2@gmail.com', password: 'password', name: 'User2')
       invitation = Friendship.create(user_id: user1.id, friend_id: user2.id, status: 'confirmed')
-      friends = user2.recieved_friendship_requests[0]&.id == user1.id
+      friends = user2.received_friendships[0]&.id == user1.id
       expect(friends).to eq(false)
     end
 
