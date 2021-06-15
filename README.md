@@ -1,5 +1,6 @@
-![](https://ibb.co/K2786tH)
-![](https://ibb.co/zWcRKZL)
+![](https://i.ibb.co/5rvJTQV/ror-social-media-ss.png)
+![](https://i.ibb.co/KcZqCWQ/Image-from-i-OS.jpg)
+
 # Scaffold for social media app with Ruby on Rails
 
 > This project provides a social media website created with Ruby on Rails. We tried to implement a UX based on Facebook, so the user will find that he/she can log in, create a post, comment it, like it, add a friend, remove it at will and reject or accept a request for friendship.
